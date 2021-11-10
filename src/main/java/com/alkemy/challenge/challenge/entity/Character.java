@@ -13,7 +13,7 @@ import java.util.List;
 @Table(name = "characters")
 @Getter
 @Setter
-@SQLDelete(sql = "UPDATE character SET deleted = true WHERE id=?")
+@SQLDelete(sql = "UPDATE characters SET deleted = true WHERE id=?")
 @Where(clause = "deleted=false")
 public class Character {
     @Id
