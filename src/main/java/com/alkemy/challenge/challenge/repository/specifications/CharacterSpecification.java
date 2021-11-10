@@ -12,8 +12,6 @@ import javax.persistence.criteria.Expression;
 import javax.persistence.criteria.Join;
 import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Predicate;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,7 +32,7 @@ public class CharacterSpecification {
                 );
             }
 
-            if(filtersDTO.getAge()>0) {
+            if(filtersDTO.getAge()!= null && filtersDTO.getAge()>0) {
                 predicates.add(
                         criteriaBuildder.equal(root.get("age"), filtersDTO.getAge())
                 );
