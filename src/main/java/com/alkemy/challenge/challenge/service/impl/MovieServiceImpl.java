@@ -51,7 +51,7 @@ public class MovieServiceImpl implements MovieService {
     public MovieDTO getDetailsById(Long idMovie) {
         Movie entity = this.repository.findById(idMovie)
                 .orElseThrow(() -> new ParamNotFound("Movie not found with id " + idMovie));
-        MovieDTO dto = this.mapper.movieEntity2DTO(entity, false);
+        MovieDTO dto = this.mapper.movieEntity2DTO(entity, true);
         return dto;
     }
 

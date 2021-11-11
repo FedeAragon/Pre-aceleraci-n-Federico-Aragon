@@ -52,7 +52,7 @@ public class CharacterServiceImpl implements CharacterService {
     public CharacterDTO getDetailsById(Long id) {
         Character entity = this.repository.findById(id)
                 .orElseThrow(() -> new ParamNotFound("Character not found with id " + id));
-        CharacterDTO dto = this.mapper.characterEntity2DTO(entity, false);
+        CharacterDTO dto = this.mapper.characterEntity2DTO(entity, true);
         return dto;
     }
 
@@ -88,6 +88,7 @@ public class CharacterServiceImpl implements CharacterService {
         Character entity = this.repository.getById(id);
         entity.getMovies().size();
         Movie movieEntity = this.movieRepository.getById(idMovie);
+        entity.removeMovie(movieEntity);
         this.repository.save(entity);
     }
 
